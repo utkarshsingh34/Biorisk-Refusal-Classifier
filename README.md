@@ -10,10 +10,10 @@ Binary text classifier flagging natural-language prompts for refusal on biosecur
 
 The pipeline runs end-to-end on Google Colab free tier. To reproduce:
 
-1. **Open** `notebooks/01_data_pipeline.ipynb` in Colab ([Open in Colab](https://colab.research.google.com/github/utkarshsingh34/biology-refusal-classifier/blob/main/notebooks/01_data_pipeline.ipynb)).
-2. **Mount Google Drive** (first cell of every notebook). Data and model outputs persist at `/content/drive/MyDrive/biology_refusal/`.
-3. **Run cells top to bottom.** No code edits needed.
-4. **For DistilBERT training** (notebook 02 and 06): switch Colab runtime to **T4 GPU** (`Runtime → Change runtime type → T4 GPU`).
+1. **Open** `notebooks/01_data_pipeline.ipynb` in Colab ([Open in Colab](https://colab.research.google.com/github/utkarshsingh34/Biorisk-Refusal-Classifier/blob/main/notebooks/01_data_pipeline.ipynb)).
+3. **Mount Google Drive** (first cell of every notebook). Data and model outputs persist at `/content/drive/MyDrive/biology_refusal/`.
+4. **Run cells top to bottom.** No code edits needed.
+5. **For DistilBERT training** (notebook 02 and 06): switch Colab runtime to **T4 GPU** (`Runtime → Change runtime type → T4 GPU`).
 
 Total runtime end-to-end: ~30 minutes (data ~5 min, modeling ~15 min with GPU, leakage check ~3 min, cleanup re-eval ~10 min, evaluation viz ~2 min, temperature scaling ~10 min).
 
@@ -87,7 +87,7 @@ Full per-class precision / recall / F1 / support tables are produced in notebook
 ```
 biology-refusal-classifier/
 ├── README.md                     ← you are here
-├── writeup.docx                  ← the ½–1 page note
+├── biorisk-refusal-classifier-writeup.docx                  ← ~1 page note
 ├── notebooks/                    ← 6 Colab-ready notebooks (run in order)
 ├── figures/                      ← evaluation figures (PNGs)
 └── results/
