@@ -2,7 +2,7 @@
 
 Binary text classifier flagging natural-language prompts for refusal on biosecurity grounds. Test task submission.
 
-**Write-up:** [`writeup.docx`](./writeup.docx) (1–2 pages, the short note covering data choices, modeling, results, future work).
+**Write-up:** [`biorisk-refusal-classifier-writeup.docx`](./biorisk-refusal-classifier-writeup.docx) (1–2 pages, the short note covering data choices, modeling, results, future work).
 
 ---
 
@@ -28,7 +28,7 @@ Run in order; each persists outputs to Drive that downstream notebooks read.
 | 01 | `01_data_pipeline.ipynb` | Loads WMDP-bio + 4 negative buckets (MMLU bio/non-bio, Alpaca, dual_use). KMeans topic-clustered split on WMDP. Per-bucket stratified split on negatives. | ~5 min CPU |
 | 02 | `02_modeling.ipynb` | Trains TF-IDF+LR, MiniLM+LR, DistilBERT on the same split. Shared evaluation function. Per-bucket recall, PR curves, operating points. | ~15 min GPU |
 | 03 | `03_leakage_check.ipynb` | Six diagnostic checks: exact dups, near-dups via embeddings, cross-source proximity, label sanity, top discriminating features, bucket-pair separability. | ~3 min CPU |
-| 04 | `04_cleanup_and_reeval.ipynb` | Drops 12 near-duplicate test examples (sim ≥ 0.90). Augments TF-IDF stopwords with format/imperative artifacts. Retrains all three models on cleaned data. | ~10 min GPU |
+| 04 | `04_cleanup_and_reeval.ipynb` | Drops near-duplicate test examples (sim ≥ 0.90). Augments TF-IDF stopwords with format/imperative artifacts. Retrains all three models on cleaned data. | ~10 min GPU |
 | 05 | `05_evaluation.ipynb` | Produces all figures and consolidated metrics tables from the cleaned predictions. | ~2 min CPU |
 | 06 | `06_temperature_scaling.ipynb` | Fits a temperature scalar on a held-out 15% of training data, retrains DistilBERT on the remaining 85%, applies scaling. Demonstrated the standard calibration fix wasn't needed (model already well-calibrated). | ~10 min GPU |
 
