@@ -10,7 +10,7 @@ Binary text classifier flagging natural-language prompts for refusal on biosecur
 
 The pipeline runs end-to-end on Google Colab free tier. To reproduce:
 
-1. **Open** `notebooks/01_data_pipeline.ipynb` in Colab ([Open in Colab](https://colab.research.google.com/github/<your-username>/biology-refusal-classifier/blob/main/notebooks/01_data_pipeline.ipynb)).
+1. **Open** `notebooks/01_data_pipeline.ipynb` in Colab ([Open in Colab](https://colab.research.google.com/github/utkarshsingh34/biology-refusal-classifier/blob/main/notebooks/01_data_pipeline.ipynb)).
 2. **Mount Google Drive** (first cell of every notebook). Data and model outputs persist at `/content/drive/MyDrive/biology_refusal/`.
 3. **Run cells top to bottom.** No code edits needed.
 4. **For DistilBERT training** (notebook 02 and 06): switch Colab runtime to **T4 GPU** (`Runtime → Change runtime type → T4 GPU`).
@@ -68,7 +68,7 @@ Per-bucket recall on negatives (the headline diagnostic — higher = better cont
 | MiniLM | 0.998 | 0.985 | 0.961 | **0.808** |
 | DistilBERT | **1.000** | **1.000** | **0.990** | **0.960** |
 
-Full per-class precision / recall / F1 / support tables are produced in notebook 04 (TF-IDF and MiniLM at cell 5, DistilBERT at cell 7). The consolidated table is saved to `results/results_table.csv` by notebook 05.
+Full per-class precision / recall / F1 / support tables are produced in notebook 04. The consolidated table is saved to `results/results_table.csv` by notebook 05.
 
 ---
 
@@ -96,7 +96,3 @@ biology-refusal-classifier/
 ```
 
 ---
-
-## Tooling note
-
-Claude (claude.ai) was used for scoping the negative-bucket design, iterating on the leakage diagnostic suite, generating evaluation visualizations, and debugging Colab session-state issues. Methodological decisions were mine; the assistant accelerated execution.
